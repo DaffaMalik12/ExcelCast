@@ -1,3 +1,4 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { Assets as NavigationAssets } from '@react-navigation/elements';
 import { Asset } from 'expo-asset';
 import * as SplashScreen from 'expo-splash-screen';
@@ -14,17 +15,16 @@ SplashScreen.preventAutoHideAsync();
 
 export function App() {
   return (
-    <Navigation
+    <NavigationContainer
       linking={{
-        enabled: 'auto',
-        prefixes: [
-          // Change the scheme to match your app's scheme defined in app.json
-          'helloworld://',
-        ],
+        enabled: true,  // Set linking as true for enabling deep linking
+        prefixes: ['helloworld://'],  // Set your scheme
       }}
       onReady={() => {
         SplashScreen.hideAsync();
       }}
-    />
+    >
+      <Navigation /> 
+    </NavigationContainer>
   );
 }

@@ -1,105 +1,51 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HeaderButton, Text } from '@react-navigation/elements';
-import {
-  createStaticNavigation,
-  StaticParamList,
-} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Image } from 'react-native';
-import bell from '../assets/bell.png';
-import newspaper from '../assets/newspaper.png';
-import { Home } from './screens/Home';
-import { Profile } from './screens/Profile';
-import { Settings } from './screens/Settings';
-import { Updates } from './screens/Updates';
-import { NotFound } from './screens/NotFound';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { Text } from '@react-navigation/elements';
+import Splash from './screens/SplashScreen';
+import Home from './screens/Home';
 
-const HomeTabs = createBottomTabNavigator({
-  screens: {
-    Home: {
-      screen: Home,
-      options: {
-        title: 'Feed',
-        tabBarIcon: ({ color, size }) => (
-          <Image
-            source={newspaper}
-            tintColor={color}
-            style={{
-              width: size,
-              height: size,
-            }}
-          />
-        ),
-      },
-    },
-    Updates: {
-      screen: Updates,
-      options: {
-        tabBarIcon: ({ color, size }) => (
-          <Image
-            source={bell}
-            tintColor={color}
-            style={{
-              width: size,
-              height: size,
-            }}
-          />
-        ),
-      },
-    },
-  },
-});
 
-const RootStack = createNativeStackNavigator({
-  screens: {
-    HomeTabs: {
-      screen: HomeTabs,
-      options: {
-        title: 'Home',
-        headerShown: false,
-      },
-    },
-    Profile: {
-      screen: Profile,
-      linking: {
-        path: ':user(@[a-zA-Z0-9-_]+)',
-        parse: {
-          user: (value) => value.replace(/^@/, ''),
-        },
-        stringify: {
-          user: (value) => `@${value}`,
-        },
-      },
-    },
-    Settings: {
-      screen: Settings,
-      options: ({ navigation }) => ({
-        presentation: 'modal',
-        headerRight: () => (
-          <HeaderButton onPress={navigation.goBack}>
-            <Text>Close</Text>
-          </HeaderButton>
-        ),
-      }),
-    },
-    NotFound: {
-      screen: NotFound,
-      options: {
-        title: '404',
-      },
-      linking: {
-        path: '*',
-      },
-    },
-  },
-});
+export type RootStackParamList = {
+  Splash: undefined;
+  Home: undefined;
+};
 
-export const Navigation = createStaticNavigation(RootStack);
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
-type RootStackParamList = StaticParamList<typeof RootStack>;
+export function Navigation() {
+  return (
+    <Stack.Navigator
+      initialRouteName="Splash"
+      screenOptions={{
+        headerShown: true,
+      }}
+    >
+      <Stack.Screen
+        name="Splash"
+        component={Splash}
+        options={{
+          headerShown: false,
+          presentation: 'modal',
+        }}
+      />
 
-declare global {
-  namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
-  }
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          title: 'Home',
+          headerBackVisible: false,
+          headerTitle: () => (
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Image
+                source={require('../assets/image.png')}
+                style={{ width: 24, height: 24, marginRight: 8 }}
+              />
+              <Text style={{ fontSize: 18, fontWeight: 'bold' }}>ExcelCast</Text>
+            </View>
+          ),
+        }}
+      />
+    </Stack.Navigator>
+  );
 }

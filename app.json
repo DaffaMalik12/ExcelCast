@@ -4,7 +4,7 @@
     "slug": "ExcelCast",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/image.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "scheme": "excelcast",
@@ -13,9 +13,10 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/image.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.dfhv.ExcelCast"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -26,10 +27,15 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#ffffff",
-          "image": "./assets/splash-icon.png"
+          "image": "./assets/Logo.png"
         }
       ],
       "react-native-edge-to-edge"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "74601b26-279a-4d4d-adaa-53271ad4b3b8"
+      }
+    }
   }
 }
