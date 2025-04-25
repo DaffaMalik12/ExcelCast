@@ -1,28 +1,3 @@
-# Starter Template with React Navigation
-
-This is a minimal starter template for React Native apps using Expo and React Navigation.
-
-It includes the following:
-
-- Example [Native Stack](https://reactnavigation.org/docs/native-stack-navigator) with a nested [Bottom Tab](https://reactnavigation.org/docs/bottom-tab-navigator)
-- Web support with [React Native for Web](https://necolas.github.io/react-native-web/)
-- TypeScript support and configured for React Navigation
-- Automatic deep link and URL handling configuration
-- Expo [Development Build](https://docs.expo.dev/develop/development-builds/introduction/) with [Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/)
-- Edge-to-edge configured on Android with [`react-native-edge-to-edge`](https://www.npmjs.com/package/react-native-edge-to-edge)
-
-## Getting Started
-
-1. Create a new project using this template:
-
-   ```sh
-   npx create-expo-app@latest --template react-navigation/template
-   ```
-
-2. Edit the `app.json` file to configure the `name`, `slug`, `scheme` and bundle identifiers (`ios.bundleIdentifier` and `android.bundleIdentifier`) for your app.
-
-3. Edit the `src/App.tsx` file to start working on your app.
-
 ## Running the app
 
 - Install the dependencies:
@@ -48,18 +23,12 @@ It includes the following:
 - In the terminal running the development server, press `i` to open the iOS simulator, `a` to open the Android device or emulator, or `w` to open the web browser.
 
 ## Notes
+ExcelCast is an innovative WhatsApp broadcasting application that leverages the power of Microsoft Excel to streamline message distribution. This solution allows users to manage contact lists and message content directly within Excel spreadsheets, making it familiar and accessible for users who work with spreadsheets regularly.
 
-This project uses a [development build](https://docs.expo.dev/develop/development-builds/introduction/) and cannot be run with [Expo Go](https://expo.dev/go). To run the app with Expo Go, edit the `package.json` file, remove the `expo-dev-client` package and `--dev-client` flag from the `start` script. However, Edge-to-edge won't work on Expo Go.
+The application enables batch messaging through WhatsApp by reading data from Excel files, supporting features like personalized messages, scheduling, and message tracking. Users can organize their contacts into groups, customize message templates, and execute broadcasting campaigns efficiently without leaving the Excel environment.
 
-We highly recommend using the development builds for normal development and testing.
-
-The `ios` and `android` folder are gitignored in the project by default as they are automatically generated during the build process ([Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/)). This means that you should not edit these folders directly and use [config plugins](https://docs.expo.dev/config-plugins/) instead. However, if you need to edit these folders, you can remove them from the `.gitignore` file so that they are tracked by git.
+One of the key advantages of ExcelCast is its ability to maintain detailed logs of message delivery status, providing users with clear insights into their broadcasting campaigns. The system is designed to respect WhatsApp's messaging policies and includes safety features to prevent spam while ensuring reliable message delivery to intended recipients.
 
 ## Resources
 
-- [React Navigation documentation](https://reactnavigation.org/)
-- [Expo documentation](https://docs.expo.dev/)
-
----
-
-Demo assets are from [lucide.dev](https://lucide.dev/)
+- [APK](https://expo.dev/accounts/dfhv/projects/ExcelCast/builds/054cc375-3701-4bdb-85e8-dae816e5a105)
