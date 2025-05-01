@@ -18,6 +18,7 @@ import ModalKeluar from '../../components/modalKeluar';
 
 //  Import Styles
 import { homeStyles } from '../../styles/homeStyles';
+import Footer from '../../components/Footer';
 
 export default function Home() {
   const [message, setMessage] = useState('');
@@ -228,6 +229,9 @@ export default function Home() {
               )}
             </TouchableOpacity>
           </View>
+
+          {/* Footer */}
+          <Footer />
         </View>
       </ScrollView>
       
